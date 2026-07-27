@@ -20,7 +20,7 @@ Each microservice is built using Maven, containerized with Docker, and deployed 
 
 # 🖼 Project Overview
 
-![Project Overview](images/project-overview.png)
+![Project Overview](images/Java-devops-project.png)
 
 ---
 
@@ -145,7 +145,7 @@ http://<MINIKUBE-IP>:30010
 
 Successful creation of Kubernetes Deployments and Services.
 
-![Kubernetes Resources](images/kubernetes-resources.png)
+![Kubernetes Resources](images/java-spring-app.png)
 
 ---
 
@@ -153,7 +153,7 @@ Successful creation of Kubernetes Deployments and Services.
 
 All three Java microservices running successfully on the Kubernetes cluster.
 
-![Running Pods](images/running-pods.png)
+![Running Pods](images/shopfront.png)
 
 ---
 
@@ -161,8 +161,7 @@ All three Java microservices running successfully on the Kubernetes cluster.
 
 Java Shopfront application successfully deployed and accessible through Kubernetes.
 
-![Application Output](images/application-output.png)
-
+![Application Output](images/app-deployed.png)
 ---
 
 ## 🎯 Key Learning Outcomes
