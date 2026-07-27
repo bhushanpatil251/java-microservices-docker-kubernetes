@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockmanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stockmanager
+  template:
+    metadata:
+      labels:
+        app: stockmanager
+    spec:
+      containers:
+      - name: stockmanager
+        image: bhushanpatil/stockmanager:v1
+        ports:
+        - containerPort: 8030
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stockmanager
+spec:
+  selector:
+    app: stockmanager
+  ports:
+  - port: 8030
+    targetPort: 8030

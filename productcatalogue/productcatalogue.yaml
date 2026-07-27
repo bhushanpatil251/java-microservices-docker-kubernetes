@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productcatalogue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productcatalogue
+  template:
+    metadata:
+      labels:
+        app: productcatalogue
+    spec:
+      containers:
+      - name: productcatalogue
+        image: bhushanpatil/productcatalogue:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8020
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productcatalogue
+spec:
+  selector:
+    app: productcatalogue
+  ports:
+  - port: 8020
+    targetPort: 8020

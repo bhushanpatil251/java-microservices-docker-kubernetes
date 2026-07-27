@@ -1,13 +1,207 @@
-# Docker-Java-kubernetes-project
-Deploying Java Applications with Docker and Kubernetes
+# 🚀 Java Microservices Deployment using Docker & Kubernetes
 
-Credit: https://github.com/danielbryantuk/oreilly-docker-java-shopping/
+Deploying a Java microservices application on Kubernetes using **Docker**, **Docker Hub**, **Minikube**, and **Kubernetes Deployments & Services**.
 
+---
 
-![logo of project](https://user-images.githubusercontent.com/103496926/211329843-62fd4ffb-1129-4c3a-9f9b-ca2d4b40efa4.png)
+## 📖 Project Overview
 
-The workflow of the project is going to be like this in the below image ⬇️⬇️
+This project demonstrates an end-to-end deployment of a Java microservices application by containerizing each service with Docker and deploying them on a Kubernetes cluster using Minikube.
 
-![workflow of project logo](https://user-images.githubusercontent.com/103496926/211329892-bc005b89-9975-44cc-9bb9-88d55ce5a22a.png)
+The application consists of three independent microservices:
 
-The whole blog about this project is Published on "Kubesimplify". Here, You can check : https://blog.kubesimplify.com/deploying-java-application-using-docker-and-kubernetes-devops-project#comments-list
+- 🛒 Shopfront
+- 📦 Product Catalogue
+- 📊 Stock Manager
+
+Each microservice is built using Maven, containerized with Docker, and deployed using Kubernetes Deployments and Services.
+
+---
+
+# 🖼 Project Overview
+
+![Project Overview](images/project-overview.png)
+
+---
+
+# 🔄 Project Workflow
+
+![Project Workflow](images/project-workflow.png)
+
+---
+
+## 🛠 Tech Stack
+
+- Java
+- Maven
+- Docker
+- Docker Hub
+- Kubernetes
+- Minikube
+- kubectl
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── productcatalogue/
+├── shopfront/
+├── stockmanager/
+├── k8s/
+├── images/
+└── README.md
+```
+
+---
+
+## 🐳 Docker Images
+
+| Microservice | Docker Image |
+|--------------|--------------|
+| Product Catalogue | `bhushanpatil/productcatalogue:v1` |
+| Stock Manager | `bhushanpatil/stockmanager:v1` |
+| Shopfront | `bhushanpatil/shopfront:v1` |
+
+---
+
+## 🚀 Build Java Applications
+
+Build each Java microservice using Maven.
+
+```bash
+cd productcatalogue
+mvn clean install -DskipTests
+
+cd ../stockmanager
+mvn clean install -DskipTests
+
+cd ../shopfront
+mvn clean install -DskipTests
+```
+
+---
+
+## 🐳 Build Docker Images
+
+```bash
+docker build -t bhushanpatil/productcatalogue:v1 ./productcatalogue
+
+docker build -t bhushanpatil/stockmanager:v1 ./stockmanager
+
+docker build -t bhushanpatil/shopfront:v1 ./shopfront
+```
+
+---
+
+## ☸ Deploy to Kubernetes
+
+Deploy all Kubernetes manifests.
+
+```bash
+kubectl apply -f k8s/
+```
+
+---
+
+## ✅ Verify Deployment
+
+```bash
+kubectl get pods
+
+kubectl get svc
+
+kubectl get deployments
+
+kubectl get all
+```
+
+---
+
+## 🌐 Access the Application
+
+```bash
+minikube service shopfront
+```
+
+Or
+
+```bash
+minikube ip
+```
+
+Open:
+
+```text
+http://<MINIKUBE-IP>:30010
+```
+
+---
+
+# 📸 Project Screenshots
+
+## Kubernetes Resources
+
+Successful creation of Kubernetes Deployments and Services.
+
+![Kubernetes Resources](images/kubernetes-resources.png)
+
+---
+
+## Running Pods
+
+All three Java microservices running successfully on the Kubernetes cluster.
+
+![Running Pods](images/running-pods.png)
+
+---
+
+## Application Output
+
+Java Shopfront application successfully deployed and accessible through Kubernetes.
+
+![Application Output](images/application-output.png)
+
+---
+
+## 🎯 Key Learning Outcomes
+
+- Built Java microservices using Maven
+- Containerized applications with Docker
+- Created Docker images from Dockerfiles
+- Deployed applications on Kubernetes using Minikube
+- Created Kubernetes Deployments and Services
+- Exposed applications using NodePort
+- Verified Kubernetes resources using `kubectl`
+- Debugged and resolved CrashLoopBackOff issues
+
+---
+
+## 📚 Useful Commands
+
+```bash
+kubectl get pods
+
+kubectl get svc
+
+kubectl get deployments
+
+kubectl get all
+
+kubectl logs <pod-name>
+
+kubectl describe pod <pod-name>
+
+minikube service shopfront
+```
+
+---
+
+## 🙏 Acknowledgements
+
+This project was completed as a hands-on learning exercise to strengthen practical experience in Docker, Kubernetes, and Java microservices deployment.
+
+---
+
+⭐ If you found this project useful, consider giving it a Star!
